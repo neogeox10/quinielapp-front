@@ -1,0 +1,68 @@
+:root {
+  /* Tema Claro (Default) */
+  --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  --card-bg: #ffffff;
+  --text-main: #212529;
+  --navbar-bg: #1a237e; /* Azul profundo profesional */
+  --accent-color: #303f9f;
+}
+
+[data-theme='dark'] {
+  /* Tema Oscuro */
+  --bg-gradient: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+  --card-bg: #2d2d2d;
+  --text-main: #f8f9fa;
+  --navbar-bg: #000000;
+  --accent-color: #3f51b5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main);
+  border: none;
+}
+
+.cristal{
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Resaltado del menú activo */
+.nav-link.active {
+  color: #fff !important;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+/* Ajuste para que las cards no se vean pegadas en móvil */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Animación sutil al pasar el mouse en PC */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Asegurar que el texto largo no rompa el diseño */
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
