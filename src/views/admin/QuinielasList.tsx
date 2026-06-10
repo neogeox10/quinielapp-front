@@ -5,6 +5,7 @@ import { ConfirmModal } from './components/ConfirmModal';
 import { ViewMatchesModal } from './components/ViewMatchesModal';
 import { RankingModal } from '../player/components/RankingModal';
 import { QuinielaUsuariosModal } from './components/QuinielaUsuariosModal';
+import { exportQuinielaToPDF } from '../../util/export-quiniela-to-pdf';
 
 export const QuinielasList = () => {
     const [quinielas, setQuinielas] = useState<any[]>([]);
@@ -72,6 +73,11 @@ export const QuinielasList = () => {
         }
     };
 
+    const exportarPDF = async (id: string) =>{
+         const exportData = await apiCall({ method: 'GET', path: `/admin/quinielas/export/${id}` });
+         exportQuinielaToPDF(exportData.data);
+    };
+
     return (
         <div className="container py-4">
             <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
@@ -120,6 +126,13 @@ export const QuinielasList = () => {
                                             onClick={() => { setSelectedQuiniela(q); setShowRanking(true); }}
                                         >
                                             <i className="bi bi-bar-chart-fill me-2"></i> Ver Resultados&nbsp;&nbsp;
+                                        </button>
+
+                                        <button
+                                            className="btn btn-dark text-white d-flex align-items-center justify-content-center py-2 shadow-sm"
+                                            onClick={() => exportarPDF(q._id)}
+                                        >
+                                            <i className="bi bi-bar-chart-fill me-2"></i> Exportar a PDF&nbsp;&nbsp;
                                         </button>
 
                                         <button
