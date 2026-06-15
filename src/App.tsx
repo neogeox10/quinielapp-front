@@ -28,7 +28,7 @@ function App() {
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Navigate to="users" />} />
+            <Route index element={<Navigate to="quinielas" />} />
             <Route path="users" element={<UserManagement />} />
             <Route path="quinielas" element={<QuinielasList />} />
           </Route>
