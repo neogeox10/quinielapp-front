@@ -56,7 +56,7 @@ const InitialRedirect = () => {
 
   const user = JSON.parse(userStr);
   return user.rol === 'ADMIN'
-    ? <Navigate to="/admin/users" />
+    ? <Navigate to="/admin/quinielas" />
     : <Navigate to="/player/quinielas" />;
 };
 
