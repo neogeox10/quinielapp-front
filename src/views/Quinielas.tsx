@@ -16,7 +16,7 @@ export const Quinielas = () => {
 
     useEffect(() => {
         if (usuario.rol === 'ADMIN') {
-            navigate('/admin/users');
+            navigate('/admin/quinielas');
         }
 
         if (usuario.rol === 'PLAYER') {
