@@ -51,6 +51,8 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
                                     <th className="ps-4">Posición</th>
                                     <th>Nombre</th>
                                     <th className="text-center">Puntaje</th>
+                                    <th className="text-center">Marcadores Exactos</th>
+                                    <th className="text-center">Fecha Envío</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,6 +68,8 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
                                             </button>
                                         </td>
                                         <td className="text-center fw-bold text-primary">{item.puntos}</td>
+                                        <td className="text-center fw-bold text-primary">{item.exactos}</td>
+                                        <td className="text-center fw-bold text-primary">{item.fechaEnvio}</td>
                                     </tr>
                                 ))}
                             </tbody>
