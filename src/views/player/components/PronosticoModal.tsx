@@ -109,8 +109,8 @@ export const PronosticoModal = ({ quiniela, onClose }: any) => {
                                         <div className="d-flex justify-content-between align-items-center px-2 px-md-5">
                                             {/* Local */}
                                             <div className="text-center" style={{ flex: 1 }}>
-                                                <img src={local?.bandera} width="45" className="rounded shadow-sm mb-2" alt={local?.nombreES} />
-                                                <div className="small fw-bold text-uppercase">{local?.nombreES}</div>
+                                                <img src={local?.bandera||'/desconocido.png'} width="45" className="rounded shadow-sm mb-2" alt={local?.nombreES} />
+                                                <div className="small fw-bold text-uppercase">{local?.nombreES||'A definir'}</div>
                                             </div>
 
                                             {/* Inputs de Marcador */}
@@ -140,8 +140,8 @@ export const PronosticoModal = ({ quiniela, onClose }: any) => {
 
                                             {/* Visitante */}
                                             <div className="text-center" style={{ flex: 1 }}>
-                                                <img src={visita?.bandera} width="45" className="rounded shadow-sm mb-2" alt={visita?.nombreES} />
-                                                <div className="small fw-bold text-uppercase">{visita?.nombreES}</div>
+                                                <img src={visita?.bandera||'/desconocido.png'} width="45" className="rounded shadow-sm mb-2" alt={visita?.nombreES} />
+                                                <div className="small fw-bold text-uppercase">{visita?.nombreES||'A definir'}</div>
                                             </div>
                                         </div>
                                         {quiniela.faseActual !== 'NINGUNA' && <div className="text-center mb-3">

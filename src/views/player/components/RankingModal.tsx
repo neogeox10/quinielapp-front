@@ -56,9 +56,8 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {leaderboard.map((item, index) => (
+                                {leaderboard.map(item => (
                                     <tr key={item.usuarioId} style={{verticalAlign:'middle'}}>
-                                        <td className="ps-4 fw-bold">{index + 1} {getMedal(index)}</td>
                                         <td className='text-center' >
                                             <button
                                                 className="btn btn-link p-0 text-decoration-none fw-bold"
