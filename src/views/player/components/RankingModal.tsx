@@ -11,13 +11,6 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
             .then(res => setLeaderboard(res.data));
     }, [quiniela]);
 
-    const getMedal = (index: number) => {
-        if (index === 0) return <i className="bi bi-trophy-fill text-warning me-2"></i>;
-        if (index === 1) return <i className="bi bi-award-fill text-secondary me-2"></i>;
-        if (index === 2) return <i className="bi bi-award-fill text-danger-emphasis me-2"></i>;
-        return null;
-    };
-
     // Si hay un usuario seleccionado, mostramos sus pronósticos en lugar de la tabla
     if (selectedUser) {
         return (
