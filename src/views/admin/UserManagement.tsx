@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { apiCall } from '../../api/client';
+import { ResetPasswordModal } from './components/ResetPasswordModal';
 
 export const UserManagement = () => {
     const [users, setUsers] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-
+    const [selectedUser, setSelectedUser] = useState<string|null>(null);
+    const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
     const fetchUsers = async () => {
         try {
             const res = await apiCall({ method: 'GET', path: '/admin/users' });
@@ -79,12 +81,25 @@ export const UserManagement = () => {
                                     >
                                         {user.activo ? 'Desactivar' : 'Activar Usuario'}
                                     </button>}
+
+                                    {!user.googleId && <button
+                                        className={`btn btn-sm btn-primary`}
+                                        onClick={() =>{ setSelectedUser(user._id); setShowResetPasswordModal(true) }}
+                                    >
+                                        Reset Password
+                                    </button>}
                                 </div>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
+            {showResetPasswordModal && selectedUser && (
+                            <ResetPasswordModal
+                                usuarioId={selectedUser}
+                                onClose={() => { setShowResetPasswordModal(false); }}
+                            />
+                        )}
         </div>
     );
 };
