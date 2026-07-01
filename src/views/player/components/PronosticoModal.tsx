@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { SORTED_COUNTRIES } from '../../../constants/countries.constants';
 import { apiCall } from '../../../api/client';
+import { fechaHora } from '../../../util/fechaHoraUtils';
 
 export const PronosticoModal = ({ quiniela, onClose }: any) => {
     // Estado para guardar las predicciones usando el ID del partido como llave
@@ -87,24 +88,7 @@ export const PronosticoModal = ({ quiniela, onClose }: any) => {
                                     <li key={p._id} className="list-group-item py-4">
                                         {/* Fecha del partido */}
                                         <div className="text-center mb-3">
-                                            {(() => {
-                                                const meses = [
-                                                    { long: 'Enero', short: 'ENE' },
-                                                    { long: 'Febrero', short: 'FEB' },
-                                                    { long: 'Marzo', short: 'MAR' },
-                                                    { long: 'Abril', short: 'ABR' },
-                                                    { long: 'Mayo', short: 'MAY' },
-                                                    { long: 'Junio', short: 'JUN', },
-                                                    { long: 'Julio', short: 'JUL', },
-                                                    { long: 'Agosto', short: 'AGO' },
-                                                    { long: 'Septiembre', short: 'SEP' },
-                                                    { long: 'Octubre', short: 'OCT' },
-                                                    { long: 'Noviembre', short: 'NOV' },
-                                                    { long: 'Diciembre', short: 'DIC' }
-                                                ];
-                                                const fecha = new Date(p.fecha);
-                                                return <>{fecha.getUTCDate()} / {meses[fecha.getMonth()].short} / {fecha.getFullYear()}</>
-                                            })()}
+                                            {fechaHora(p.fecha)}
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center px-2 px-md-5">
                                             {/* Local */}

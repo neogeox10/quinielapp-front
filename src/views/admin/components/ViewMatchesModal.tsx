@@ -1,4 +1,5 @@
 import { SORTED_COUNTRIES } from '../../../constants/countries.constants';
+import { fechaHora } from '../../../util/fechaHoraUtils';
 
 export const ViewMatchesModal = ({ quiniela, onClose }: any) => {
     const getCountry = (fifa: string) => SORTED_COUNTRIES.find(c => c.fifa === fifa);
@@ -27,24 +28,7 @@ export const ViewMatchesModal = ({ quiniela, onClose }: any) => {
                                                 {p.resultadoLocal ?? '-'} : {p.resultadoVisitante ?? '-'}
                                             </span>
                                             <div className="text-muted" style={{ fontSize: '0.7rem' }}>
-                                                {(() => {
-                                                    const meses = [
-                                                        { long: 'Enero', short: 'ENE' },
-                                                        { long: 'Febrero', short: 'FEB' },
-                                                        { long: 'Marzo', short: 'MAR' },
-                                                        { long: 'Abril', short: 'ABR' },
-                                                        { long: 'Mayo', short: 'MAY' },
-                                                        { long: 'Junio', short: 'JUN', },
-                                                        { long: 'Julio', short: 'JUL', },
-                                                        { long: 'Agosto', short: 'AGO' },
-                                                        { long: 'Septiembre', short: 'SEP' },
-                                                        { long: 'Octubre', short: 'OCT' },
-                                                        { long: 'Noviembre', short: 'NOV' },
-                                                        { long: 'Diciembre', short: 'DIC' }
-                                                    ];
-                                                    const fecha = new Date(p.fecha);
-                                                    return <>{fecha.getUTCDate()} / {meses[fecha.getMonth()].short} / {fecha.getFullYear()}</>
-                                                })()}
+                                                {fechaHora(p.fecha)}
                                             </div>
                                         </div>
                                         <div className="text-center" style={{ flex: 1 }}>

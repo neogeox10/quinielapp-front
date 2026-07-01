@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { apiCall } from '../../../api/client';
 import { DetallePronosticos } from './DetallePronosticos';
+import { fechaHoraExacta } from '../../../util/fechaHoraUtils';
 
 export const RankingModal = ({ quiniela, onClose }: any) => {
     const [leaderboard, setLeaderboard] = useState<any[]>([]);
@@ -31,7 +32,7 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
 
     return (
         <div className="modal show d-block" tabIndex={-1} style={{ background: 'rgba(0,0,0,0.7)' }}>
-            <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-dialog modal-dialog-centered modal-lg">
                 <div className="modal-content border-0">
                     <div className="modal-header bg-dark text-white">
                         <h5 className="modal-title">Posiciones: {quiniela.nombre}</h5>
@@ -62,7 +63,7 @@ export const RankingModal = ({ quiniela, onClose }: any) => {
                                         </td>
                                         <td className="text-center fw-bold text-primary">{item.puntos}</td>
                                         <td className="text-center fw-bold text-primary">{item.exactos}</td>
-                                        <td className="text-center fw-bold text-primary">{item.fechaEnvio}</td>
+                                        <td className="text-center fw-bold text-primary">{fechaHoraExacta(item.fechaEnvio)}</td>
                                     </tr>
                                 ))}
                             </tbody>
